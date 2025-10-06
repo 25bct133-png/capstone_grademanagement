@@ -1,0 +1,56 @@
+# Student Grade Management System
+
+students = []
+
+def add_student():
+    name = input("Enter student name: ")
+    mark = float(input("Enter student mark (0-100): "))
+
+    if mark >= 90:
+        grade = "A+"
+    elif mark >= 80:
+        grade = "A"
+    elif mark >= 70:
+        grade = "B"
+    elif mark >= 60:
+        grade = "C"
+    elif mark >= 50:
+        grade = "D"
+    else:
+        grade = "Fail"
+
+    student = {"name": name, "mark": mark, "grade": grade}
+    students.append(student)
+    print(f"\n✅ {name} added successfully with grade {grade}!\n")
+
+def view_students():
+    if not students:
+        print("\n No students found.\n")
+        return
+    print("\n Student Details:")
+    print("-" * 40)
+    for s in students:
+        print(f"Name: {s['name']}, Mark: {s['mark']}, Grade: {s['grade']}")
+    print("-" * 40)
+
+def main():
+    while True:
+        print("\n--- Student Grade Management System ---")
+        print("1. Add Student")
+        print("2. View Students")
+        print("3. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            add_student()
+        elif choice == "2":
+            view_students()
+        elif choice == "3":
+            print(" Exiting Program. Goodbye!")
+            break
+        else:
+            print(" Invalid choice. Try again!")
+
+if __name__ == "__main__":
+    main()
